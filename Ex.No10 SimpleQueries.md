@@ -1,6 +1,6 @@
 # Ex.No: 10  Logic Programming –  Simple queries from facts and rules
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE:22.04.2025                                                                           
+### REGISTER NUMBER :212222040036
 ### AIM: 
 To write a prolog program to find the answer of query. 
 ###  Algorithm:
@@ -21,9 +21,20 @@ Construct the FOL representation for the following sentences <br>
 5.	 Bill eats peanuts  <br> 
    Convert into clause form and Prove that John like Apple by using Prolog. <br> 
 ### Program:
-
+```
+food(apples).
+food(chicken).
+food(peanuts).
+likes(john, X) :-
+  food(X).
+eats(bill, X) :-
+ food(X).
+eats(sue, X) :-
+  eats(bill, X).
+```
 
 ### Output:
+![image](https://github.com/Rajithxx/AI_Lab_2023-24/assets/148357145/c3034336-258c-4077-b01d-27415fb7d372)
 
 ### Task 2:
 Consider the following facts and represent them in predicate form: <br>              
@@ -34,18 +45,47 @@ Consider the following facts and represent them in predicate form: <br>
 Convert the facts in predicate form to clauses and then prove by resolution: “Steve likes BK301 course”<br> 
 
 ### Program:
-
+```
+likes(steve, X) :-
+ easy_course(X).
+hard_course(science).
+easy_course(X) :-
+ in_department(X, have_fun).
+in_department(bk301, have_fun).
+```
 
 ### Output:
+![image](https://github.com/Rajithxx/AI_Lab_2023-24/assets/148357145/38a485f0-1385-4bd8-905d-b774930886a5)
 
 ### Task 3:
 Consider the statement <br> 
 “This is a crime for an American to sell weapons to hostile nations. The Nano , enemy of America has some missiles and its missiles were sold it by Colonal West who is an American” <br> 
 Convert to Clause form and prove west is criminal by using Prolog.<br> 
 ### Program:
+```
+criminal(X):-
+    american(X),
+    weapon(Y),
+    hostile(Z),
+    sells(X,Y,Z).
 
+weapon(Y):-
+    missile(Y).
+
+hostile(Z):-
+    enemy(Z,america).
+
+sells(west,Y,nano):-
+    missile(Y),
+    owns(nano,Y).
+missile(m).
+owns(nano,m).
+enemy(nano,america).
+american(west).
+```
 
 ### Output:
+![image](https://github.com/Rajithxx/AI_Lab_2023-24/assets/148357145/0d91172b-9b7c-40ad-8560-1545a4c81656)
 
 ### Result:
 Thus the prolog programs were executed successfully and the answer of query was found.
